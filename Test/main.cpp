@@ -1,7 +1,8 @@
 #include <iostream>
+#include "test.h"
+
 int main()
 {
-    int a{};
-    std::cin>>a;
-    std::cout<<a;
+    Test t{};
+    t.Print();
 }
