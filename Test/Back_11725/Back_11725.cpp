@@ -30,7 +30,7 @@ void Bfs()
 		}
 	}
 }
-s
+
 
 int main()
 {
