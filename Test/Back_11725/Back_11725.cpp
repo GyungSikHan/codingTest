@@ -6,48 +6,50 @@ using namespace std;
 
 int n{};
 int a{}, b{};
+vector<vector<int>> tree;
 vector<int> parent;
 
-void Serch(vector<vector<int>> tree, int root)
+void Serch(int root)
 {
-    vector<bool> visit(n+1, false);
-    vector<vector<int>> temp;
-    temp = tree[root];
-    visit[root] = true;
+    queue<int> q;
+    q.push(root);
+    parent[root] = 0;
 
-    while (temp.empty() == false)
+    while (q.empty() == false)
     {
-        int node = temp.back();
-        temp.pop_back();
+        int currNode = q.front();
+        q.pop();
 
-        for(int i : tree[root])
+        for(int i : tree[currNode])
         {
-            if(visit[i] == false)
+            if(parent[i] == -1)
             {
-                visit[i] = true;
-                parent[i] = node;
-                temp.push_back(i);
+                parent[i] = currNode;
+                q.push(i);
             }
         }
-        
     }
+    
 }
 
 int main()
 {
-    cin>>n;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
-    vector<vector<int>> tree(n+1);
-    parent.resize(n+1);
+    cin>>n;
+    tree.resize(n+1);
+    parent.resize(n+1, -1);
+    
     for (int i = 0; i < n - 1; i++)
     {
         cin>>a>>b;
         tree[a].push_back(b);
         tree[b].push_back(a);
     }
-    
 
-    Serch(tree, 1);
-    
 
+    Serch(1);
+    for(int i = 2; i <= n; i++)
+        cout<<parent[i]<<endl;
 }
