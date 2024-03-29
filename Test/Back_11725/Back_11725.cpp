@@ -52,6 +52,6 @@ int main()
 
 	for (int i = 2; i <= n; i++)
 	{
-		cout << Parent[i] << endl;
+		cout << Parent[i] <<"\n";
 	}
 }
