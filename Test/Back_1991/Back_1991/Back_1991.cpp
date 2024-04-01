@@ -32,8 +32,8 @@ int main()
 	}
 
 	Preorder(node, 1);
-	//for (int i = 1; i <= n; i++)
-	//{
-	//	cout << char(i + 64) << " " << node[i][0] << " " << node[i][1] << endl;
-	//}
+	for (int i = 1; i <= n; i++)
+	{
+		cout << char(i + 64) << " " << node[i][0] << " " << node[i][1] << endl;
+	}
 }
