@@ -4,36 +4,60 @@
 using namespace std;
 
 int n;
-char p;
-char l;
-char r;
-char node[27][2];
+int Tree[27][2];
 
-void Preorder(char node[27][2], int i)
+void Preorder(int n)
 {
+	cout << (char)(n + 'A');
 
-	cout << char(i+64);
+	if (Tree[n][0] != -1)
+		Preorder(Tree[n][0]);
+	if (Tree[n][1] != -1)
+		Preorder(Tree[n][1]);
+}
 
-	if(node[i][0] != '.')
-		Preorder(node, i * 2);
-	if(node[i][1] != '.')
-		Preorder(node,  i * 2 + 1);
+void Inorder(int n)
+{
+	if (Tree[n][0] != -1)
+		Inorder(Tree[n][0]);
+	cout << (char)(n + 'A');
+	if(Tree[n][1] != -1)
+		Inorder(Tree[n][1]);
+}
+
+void Postorder(int n)
+{
+	if (Tree[n][0] != -1)
+		Postorder(Tree[n][0]);
+	if (Tree[n][1] != -1)
+		Postorder(Tree[n][1]);
+	cout << (char)(n + 'A');
 }
 
 int main()
 {
-    cin>>n;
+    cin >> n;
 
-	for (int i = 1; i <= n; i++)
+	for (int i = 0; i < n; i++)
 	{
-		cin >> p >> l >> r;
-		node[i][0] = l;
-		node[i][1] = r;
+		char s{}, l{}, r{};
+		cin >> s >> l >> r;
+
+		int node = s - 'A';
+
+		if (l == '.')
+			Tree[node][0] = -1;
+		else
+			Tree[node][0] = l - 'A';
+		if (r == '.')
+			Tree[node][1] = -1;
+		else
+			Tree[node][1] = r - 'A';
 	}
 
-	Preorder(node, 1);
-	for (int i = 1; i <= n; i++)
-	{
-		cout << char(i + 64) << " " << node[i][0] << " " << node[i][1] << endl;
-	}
+	Preorder(0);
+	cout<<endl;
+	Inorder(0);
+	cout<<endl;
+	Postorder(0);
 }
