@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 int n{}, m{};
@@ -9,35 +10,46 @@ vector<int> Parent;
 vector<int> Depth;
 int depth = 1;
 
-void Print()
-{
-	for (int i = 1; i <= n; i++)
-	{
-		cout << i << ": ";
-		for (auto a : Tree[i])
-		{
-			cout << a << " ";
-		}
-		cout << endl;
-	}
-}
+//void DFS(int node)
+//{
+//	Visit[node] = true;
+//	Depth[node] = depth;
+//	for (auto iter : Tree[node])
+//	{
+//		if (Visit[iter] == false)
+//		{
+//			depth++;
+//			Parent[iter] = node;
+//			DFS(iter);
+//			depth--;
+//		}
+//	}
+//}
 
-void DFS(int node)
+void BFS(int node)
 {
+	queue<int> q;
+	q.push(node);
 	Visit[node] = true;
 	Depth[node] = depth;
-	for (auto iter : Tree[node])
+
+	while (q.empty() == false)
 	{
-		if (Visit[iter] == false)
+		int currNode = q.front();
+		q.pop();
+		Visit[currNode] = true;
+
+		for (auto a : Tree[currNode])
 		{
-			depth++;
-			Parent[iter] = node;
-			DFS(iter);
-			depth--;
+			if(Visit[a] == false)
+			{
+				Depth[a] = Depth[currNode] + 1;
+				Parent[a] = currNode;
+				q.push(a);
+			}
 		}
 	}
 }
-
 
 int LCA(int a, int b)
 {
@@ -77,7 +89,8 @@ int main()
 		Tree[b].push_back(a);
 	}
 
-	DFS(1);	
+	//DFS(1);
+	BFS(1);
 
 	cin >> m;
 	for (int i = 0; i < m; i++)
