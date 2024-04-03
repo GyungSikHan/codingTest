@@ -1,63 +1,90 @@
 ﻿#include <iostream>
 #include <vector>
+#include <cmath>
+
 using namespace std;
 
-int n;
-vector<long long> tree;
+vector<long> Tree;
 
-void init_tree(vector<long long>& arr) {
-    // Leaf 노드에 입력값 할당
-    for (int i = 0; i < n; ++i)
-        tree[n + i] = arr[i];
+void ChangeVal(int index, long val)
+{
+	long temp = val - Tree[index];
 
-    // 부모 노드로 올라가면서 합 구하기
-    for (int i = n - 1; i > 0; --i)
-        tree[i] = tree[i << 1] + tree[i << 1 | 1];
+	while (index > 0)
+	{
+		Tree[index] = Tree[index] + temp;
+		index /= 2;
+	}
 }
 
-// 구간 합 구하기
-long long query(int l, int r) {
-    long long res = 0;
-    // 구간의 왼쪽 끝과 오른쪽 끝이 같아질 때까지 반복
-    for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
-        if (l & 1) res += tree[l++]; // 왼쪽 끝이 홀수이면 현재 값을 더하고 오른쪽으로 이동
-        if (r & 1) res += tree[--r]; // 오른쪽 끝이 홀수이면 현재 값을 더하고 왼쪽으로 이동
-    }
-    return res;
+void SetTree(int data)
+{
+	while (data != 1)
+	{
+		Tree[data / 2] += Tree[data];
+		data--;
+	}
 }
 
-void update(int i, long long val) {
-    // i 위치의 값을 val로 갱신하고 이에 따라 부모 노드 업데이트
-    for (tree[i += n] = val; i > 1; i >>= 1)
-        tree[i >> 1] = tree[i] + tree[i ^ 1];
+long GetSum(int data1, long data2)
+{
+	long sum{};
+
+	while (data1 <= data2)
+	{
+		if (data1 % 2 == 1)
+			sum += Tree[data1];
+		if (data2 % 2 == 0)
+			sum += Tree[data2];
+
+		data1 = (data1 + 1) / 2;
+		data2 = (data2 - 1) / 2;
+	}
+
+	return sum;
 }
 
-int main() {
-    int m, k;
-    cin >> n >> m >> k;
+int main()
+{
+	int n{}, m{}, k{};
+	cin >> n >> m >> k;
 
-    // 트리의 크기 설정
-    int sz = 1;
-    while (sz < n) sz <<= 1;
-    tree.assign(sz * 2, 0);
+	int treeHeight{};
+	int length = n;
 
-    vector<long long> arr(n);
-    for (int i = 0; i < n; ++i)
-        cin >> arr[i];
+	while (length != 0)
+	{
+		length /= 2;
+		treeHeight++;
+	}
 
-    // 세그먼트 트리 초기화
-    init_tree(arr);
+	int treeSize = int(pow(2, treeHeight + 1));
+	int leftNodeStartIndex = treeSize / 2;
 
-    for (int i = 0; i < m + k; ++i) {
-        int a, b;
-        long long c;
-        cin >> a >> b >> c;
-        if (a == 1) {
-            update(b - 1, c);
-        }
-        else if (a == 2) {
-            cout << query(b - 1, c) << endl;
-        }
-    }
-    return 0;
+	Tree.resize(treeSize + 1);
+	for (int i = leftNodeStartIndex; i < leftNodeStartIndex + n; i++)
+	{
+		cin >> Tree[i];
+	}
+
+	SetTree(treeSize - 1);
+
+	for (int i = 0; i < m + k; i++)
+	{
+		int a{}, b{};
+		long c{};
+
+		cin >> a >> b >> c;
+
+		if(a == 1)
+		{
+			ChangeVal(leftNodeStartIndex - 1 + b, c);
+		}
+		else if(a == 2)
+		{
+			b = b + leftNodeStartIndex - 1;
+			c = c + leftNodeStartIndex - 1;
+			cout << GetSum(b,c) << endl;
+		}
+	}
 }
