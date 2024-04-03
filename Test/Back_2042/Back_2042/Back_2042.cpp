@@ -76,15 +76,15 @@ int main()
 
 		cin >> a >> b >> c;
 
-		if(a == 1)
+		if (a == 1)
 		{
 			ChangeVal(leftNodeStartIndex - 1 + b, c);
 		}
-		else if(a == 2)
+		else if (a == 2)
 		{
 			b = b + leftNodeStartIndex - 1;
 			c = c + leftNodeStartIndex - 1;
-			cout << GetSum(b,c) << endl;
+			cout << GetSum(b, c) << endl;
 		}
 	}
 }
