@@ -1,4 +1,5 @@
-﻿#include <cstdio>
+﻿#pragma warning(disable:4996)
+#include <cstdio>
 #include <vector>
 #include <cmath>
 
@@ -34,7 +35,8 @@ int LCA(int a, int b) {
     int diff = Depth[a] - Depth[b];
 
     for (int i = 0; i < MAXK; ++i) {
-        if (diff & (1 << i)) 
+        int a = 1 << i;
+        if (diff & (a)) 
         {
             a = Parent[a][i];
         }
