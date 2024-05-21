@@ -4,31 +4,35 @@
 
 using namespace std;
 
-// 칸토어 집합 생성 함수
-string cantorSet(int n, int start, int end) {
-    if (n == 0) {
+string Cantor(int data, int start, int end)
+{
+    if(data == 0)
         return "-";
-    }
 
     int length = end - start;
-    int interval = length / 3;
+    int interval = length/3; 
 
-    string result = cantorSet(n - 1, start, start + interval);
-    result += string(interval, ' ');
-    result += cantorSet(n - 1, end - interval, end);
+    string result = Cantor(data-1, start, start + interval);
+    for(int i = 0; i < interval; i++)
+    {
+        result += " ";
+    }
+    result += Cantor(data-1, end - interval, end);
 
     return result;
 }
 
-int main() {
-    int n;
-    while (cin >> n) 
+int main()
+{
+    int n{};
+
+    while(1)
     {
-        int size = pow(3, n);
-        string cantor = cantorSet(n, 0, size);
+        cin >> n;
 
-        cout << cantor << endl;
+        int data = pow(3,n);
+
+        string s = Cantor(n, 0, data);
+        cout << s << endl;
     }
-
-    return 0;
 }
