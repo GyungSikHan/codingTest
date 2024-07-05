@@ -8,11 +8,11 @@ int board[21][21];
 bool check[22];
 int result = 1000001;
 
-void DFS(int index, int pos)
+void DFS(int curr, int next)
 {
-	if(index == n/2)
+	if(curr == n/2)
 	{
-		int start{}, end{};
+		int start{}, link{};
 
 		for (int i = 1; i <= n; i++)
 		{
@@ -21,11 +21,11 @@ void DFS(int index, int pos)
 				if (check[i] == true && check[j] == true)
 					start += board[i][j];
 				if (check[i] == false && check[j] == false)
-					end += board[i][j];
+					link += board[i][j];
 			}
 		}
 
-		int temp = abs(start - end);
+		int temp = abs(start - link);
 
 		if (result > temp)
 			result = temp;
@@ -33,10 +33,10 @@ void DFS(int index, int pos)
 		return;
 	}
 
-	for (int i = pos; i <= n; i++)
+	for (int i = next; i <= n; i++)
 	{
 		check[i] = true;
-		DFS(index + 1, i + 1);
+		DFS(curr + 1, i + 1);
 		check[i] = false;
 
 		if(check[1] == false)
