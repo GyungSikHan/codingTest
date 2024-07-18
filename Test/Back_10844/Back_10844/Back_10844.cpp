@@ -33,7 +33,5 @@ int main()
 	for (int i = 0; i < 10; i++)
 		result = (result + dp[n][i]) % mod;
 
-	result %= mod;
-
 	cout << result << endl;
 }
