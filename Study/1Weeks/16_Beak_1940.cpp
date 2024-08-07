@@ -22,6 +22,9 @@ int main()
 }
 
 ////재귀함수
+//#include<bits/stdc++.h> 
+//using namespace std;     
+//int n, m, a[15001], cnt; 
 // void combi(int idx, vector<int> & v){
 //     if(v.size() == 2){ 
 //         int b = a[v[0]];
