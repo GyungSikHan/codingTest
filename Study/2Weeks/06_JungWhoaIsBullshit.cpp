@@ -7,7 +7,6 @@ int dY[4] = {-1,0,1,0};
 int dX[4] = {0,1,0,-1};
 
 int Count;
-int Count2;
 
 void DFS(vector<vector<int>> maps, vector<vector<bool>>& Visited, int y, int x)
 {
