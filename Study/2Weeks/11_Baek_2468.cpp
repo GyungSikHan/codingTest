@@ -23,7 +23,6 @@ void DFS(int y, int x, int k)
                 DFS(Y,X ,k);
         }
     }
-    
 }
 
 int main()
@@ -46,15 +45,6 @@ int main()
         {
             for (int j = 0; j < n; j++)
             {
-                if(arr[i][j] <= k)
-                    visited[i][j] = true;
-            }
-        }
-
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-            {
                 if(visited[i][j] == false &&arr[i][j] > k)
                 {
                     count++;
@@ -62,7 +52,6 @@ int main()
                 }
             }
         }
-
         MaxCount = max(count , MaxCount);
     }
     
