@@ -37,15 +37,15 @@ int main ()
             } 
 
 			if(vcnt == 3 || lcnt == 3) 
-                flag = 1; 
+                flag = true; 
 			if(i >= 1 && (prev == idx) && (idx != 'e' && idx != 'o'))
-				flag  = 1;
+				flag  = true;
 			
 			prev = idx;
 		}  
 
 		if(is_include_v == 0) 
-            flag = 1;
+            flag = true;
 		if(flag) 
             cout << "<" << s << ">" << " is not acceptable.\n";
 		else 
