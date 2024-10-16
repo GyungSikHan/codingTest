@@ -25,14 +25,14 @@ void DFS(int x, int y)
 
 void Wall(int data)
 {
-    if(Count == 3)
+    if(data == 3)
     {
         memset(Temp, 0, sizeof(Temp));
         for (int i = 0; i < V.size(); i++)
         {
             DFS(V[i].first, V[i].second);    
         }
-        Count = 0;
+        data = 0;
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
