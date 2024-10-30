@@ -171,5 +171,8 @@
     <ClCompile Include="3Weeks\08_Baek_4179.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
+    <ClCompile Include="09_Baek_12869.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
