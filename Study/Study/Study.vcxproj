@@ -28,7 +28,10 @@
     <ClCompile Include="03_골동품수집가큰돌은욕심쟁이야.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="04_큰돌교수님의과제는너무어려워.cpp" />
+    <ClCompile Include="04_큰돌교수님의과제는너무어려워.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="05_큰돌이는못말리는화가야.cpp" />
     <ClCompile Include="09_Baek_12869.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

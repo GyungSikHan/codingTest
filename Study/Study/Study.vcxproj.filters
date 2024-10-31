@@ -195,5 +195,8 @@
     <ClCompile Include="04_큰돌교수님의과제는너무어려워.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
+    <ClCompile Include="05_큰돌이는못말리는화가야.cpp">
+      <Filter>5Weeks</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
