@@ -189,5 +189,8 @@
     <ClCompile Include="02_큰돌은욕심많은도서관사어야.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
+    <ClCompile Include="03_골동품수집가큰돌은욕심쟁이야.cpp">
+      <Filter>5Weeks</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
