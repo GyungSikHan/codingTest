@@ -10,6 +10,9 @@
     <Filter Include="3Weeks">
       <UniqueIdentifier>{9da222d5-aec1-48af-8db0-e7f2934a10fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="5Weeks">
+      <UniqueIdentifier>{cc5182f0-1ce1-4884-a443-76573947cc58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1Weeks\01_PrefixSum.cpp">
@@ -179,6 +182,12 @@
     </ClCompile>
     <ClCompile Include="11_Baek_12851.cpp">
       <Filter>3Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="01_가장지폐를적게내는경우.cpp">
+      <Filter>5Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="02_큰돌은욕심많은도서관사어야.cpp">
+      <Filter>5Weeks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
