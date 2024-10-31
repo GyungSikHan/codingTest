@@ -198,5 +198,8 @@
     <ClCompile Include="05_큰돌이는못말리는화가야.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
+    <ClCompile Include="06_큰돌이는숫자매니아야.cpp">
+      <Filter>5Weeks</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
