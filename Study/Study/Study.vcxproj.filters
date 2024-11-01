@@ -16,6 +16,9 @@
     <Filter Include="6Weeks">
       <UniqueIdentifier>{e221105c-85da-4a16-b539-f13eebb0c740}</UniqueIdentifier>
     </Filter>
+    <Filter Include="7Weeks">
+      <UniqueIdentifier>{24fc740d-8df7-46b6-9531-5e783ce041f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1Weeks\01_PrefixSum.cpp">
@@ -209,6 +212,12 @@
     </ClCompile>
     <ClCompile Include="02_큰돌은형광펜질투쟁이야.cpp">
       <Filter>6Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="03_큰돌의LIS.cpp">
+      <Filter>6Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="01_큰돌의사과나무.cpp">
+      <Filter>7Weeks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

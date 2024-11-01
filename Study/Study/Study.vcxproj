@@ -25,11 +25,17 @@
     <ClCompile Include="01_큰돌의비밀수첩.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="01_큰돌의사과나무.cpp" />
     <ClCompile Include="02_큰돌은욕심많은도서관사어야.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="02_큰돌은형광펜질투쟁이야.cpp" />
+    <ClCompile Include="02_큰돌은형광펜질투쟁이야.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="03_골동품수집가큰돌은욕심쟁이야.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="03_큰돌의LIS.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="04_큰돌교수님의과제는너무어려워.cpp">
