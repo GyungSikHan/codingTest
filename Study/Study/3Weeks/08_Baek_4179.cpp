@@ -1,97 +1,106 @@
 #include <iostream>
+#include <vector>
 #include <queue>
+
 using namespace std;
 
-const int INF = 987654321;
 int dX[4] = { -1,0,1,0 }, dY[4] = { 0,1,0,-1 };
-int r,c,jX, jY;
-char map[1001][1001];
-int fire[1001][1001], J[1001][1001];
-int result;
 
-bool In(int x, int y)
+int INF = 987654321;
+int r, c, ret;
+int jX, jY;
+vector<vector<char>> map;
+vector<vector<int>> fire;
+vector<vector<int>> J;
+queue<pair<int, int>> q;
+
+bool Check(int x, int y)
 {
-    return x >= 0 && x < r && y >= 0 && y < c;
+	if (x >= 0 && x < r && y >= 0 && y < c)
+		return true;
+	return false;
 }
 
 int main()
 {
-    cin >>r>>c;
-
-	queue<pair<int, int>> q;
-    fill(&fire[0][0], &fire[0][0] + 1001 * 1001, INF);
+	cin >> r >> c;
+	map.resize(r, vector<char>(c));
+	fire.resize(r, vector<int>(c, INF));
+	J.resize(r, vector<int>(c, 0));
 
 	for (int i = 0; i < r; i++)
-    {
-        for (int j = 0; j < c; j++)
-        {
-            cin >> map[i][j];
-            if (map[i][j] == 'F')
-            {
-                fire[i][j] = 1;
-                q.push({ i,j });
-            }
-            else if (map[i][j] == 'J')
-            {
-                jX = i;
-                jY = j;
-            }
-        }
-    }
+	{
+		for (int j = 0; j < c; j++)
+		{
+			cin >> map[i][j];
+			if(map[i][j] == 'F')
+			{
+				fire[i][j] = 1;
+				q.push({ i,j });
+			}
+			else if(map[i][j] == 'J')
+			{
+				jX = i;
+				jY = j;
+			}
+		}
+	}
 
-    while (q.empty() == false)
-    {
-        int x = q.front().first;
-        int y = q.front().second;
-        q.pop();
-        for (int i = 0; i < 4; i++)
-        {
-            int nX = x + dX[i];
-            int nY = y + dY[i];
-	        if(In(nX,nY) == false)
-	            continue;
-	        if(fire[nX][nY] != INF || map[nX][nY] == '#')
-	            continue;
-	        fire[nX][nY] = fire[x][y] + 1;
-            q.push({ nX,nY });
-        }
-    }
+	while (q.empty() == false)
+	{
+		int currX = q.front().first;
+		int currY = q.front().second;
+		q.pop();
 
+		for (int i = 0; i < 4; i++)
+		{
+			int x = currX + dX[i];
+			int y = currY + dY[i];
 
-    J[jX][jY] = 1;
-    q.push({ jX,jY });
+			if (Check(x,y) == false)
+				continue;
+			if(fire[x][y] != INF || map[x][y] == '#')
+				continue;
 
-    while (q.empty() == false)
-    {
-        int x = q.front().first;
-        int y = q.front().second;
+			fire[x][y] = fire[currX][currY] + 1;
+			q.push({ x,y });
+		}
+	}
 
-        q.pop();
+	J[jX][jY] = 1;
+	q.push({ jX,jY });
 
-        if(x == 0 || x == r-1 || y == 0 || y == c-1)
-        {
-            result = J[x][y];
-	        break;
-        }
+	while (q.empty() == false)
+	{
+		int currX = q.front().first;
+		int currY = q.front().second;
+		q.pop();
 
-        for (int i = 0; i < 4; i++)
-        {
-            int nX = x + dX[i];
-            int nY = y + dY[i];
-            if(In(nX,nY) == false)
-                continue;
-            if(J[nX][nY] || map[nX][nY] == '#')
-                continue;
-            if(fire[nX][nY] <= J[x][y] +1)
-                continue;
-            J[nX][nY] = J[x][y] + 1;
-            q.push({ nX,nY });
-        }
-    }
+		if(currX == 0 || currX == r-1 || currY == 0 || currY == c-1)
+		{
+			ret = J[currX][currY];
+			break;
+		}
 
-    if (result != 0)
-        cout << result << endl;
-    else
-        cout << "IMPOSSIBLE" << endl;
-    
+		for (int i = 0; i < 4; i++)
+		{
+			int x = currX + dX[i];
+			int y = currY + dY[i];
+			if (Check(x,y) == false)
+				continue;
+			if (J[x][y] != 0 || map[x][y] == '#')
+				continue;
+			if(fire[x][y] <= J[currX][currY] + 1)
+				continue;
+
+			J[x][y] = J[currX][currY] + 1;
+			q.push({ x,y });
+		}
+	}
+
+	if (ret == 0)
+		cout << "IMPOSSIBLE" << endl;
+	else
+		cout << ret << endl;
+
 }
