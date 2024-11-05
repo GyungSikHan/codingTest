@@ -1,34 +1,38 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+
 using namespace std;
 
 int n;
-vector<int >num;
-vector<char> op;
-int result = -987654321;
+vector<int> num;
+vector<char> oper;
+char c;
+int length;
+int ret = -987654321;
 
-int Oper(int a, int b, char c)
+int Oper(int data, int data2, char op)
 {
-	if (c == '+')
-		return a + b;
-	if (c == '-')
-		return a - b;
-	return a * b;
+	if (op == '+')
+		return data + data2;
+	else if (op == '-')
+		return data - data2;
+	return data * data2;
 }
 
-void Solve(int here, int _num)
+void Solve(int data, int number)
 {
-	if(here == num.size() - 1)
+	if(length == number)
 	{
-		result = max(result, _num);
+		ret = max(ret, data);
 		return;
 	}
 
-	Solve(here + 1, Oper(_num, num[here + 1], op[here]));
-	if(here+2 <= num.size()-1)
+	Solve(Oper(data, num[number + 1], oper[number]), number + 1);
+	if(number+2 <= length)
 	{
-		int temp = Oper(num[here + 1], num[here + 2], op[here + 1]);
-		Solve(here + 2, Oper(_num, temp, op[here]));
+		int temp = Oper(num[number + 1], num[number + 2], oper[number + 1]);
+		Solve(Oper(data, temp, oper[number]), number + 2);
 	}
 }
 
@@ -37,14 +41,14 @@ int main()
 	cin >> n;
 	for (int i = 0; i < n; i++)
 	{
-		char c{};
 		cin >> c;
-		if (c == '+' || c == '-' || c == '*')
-			op.push_back(c);
+		if (c == '+' || c == '*' || c == '-')
+			oper.push_back(c);
 		else
 			num.push_back(c - 48);
 	}
+	length = num.size()-1;
 
-	Solve(0, num[0]);
-	cout << result << endl;
+	Solve(num[0], 0);
+	cout << ret << endl;
 }
