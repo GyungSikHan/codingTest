@@ -22,6 +22,9 @@
     <Filter Include="8Weeks">
       <UniqueIdentifier>{5e9dcc93-240d-42cd-846c-fa1a6c399cdb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="4Weeks">
+      <UniqueIdentifier>{ac2d01d8-bb26-4500-a24a-fc37eceafd3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1Weeks\01_PrefixSum.cpp">
@@ -183,52 +186,55 @@
     <ClCompile Include="3Weeks\08_Baek_4179.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="09_Baek_12869.cpp">
+    <ClCompile Include="3Weeks\12_Baek_13913.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="10_Back_16637.cpp">
+    <ClCompile Include="3Weeks\09_Baek_12869.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="11_Baek_12851.cpp">
+    <ClCompile Include="3Weeks\10_Back_16637.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="01_가장지폐를적게내는경우.cpp">
+    <ClCompile Include="3Weeks\11_Baek_12851.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="5Weeks\01_가장지폐를적게내는경우.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="02_큰돌은욕심많은도서관사어야.cpp">
+    <ClCompile Include="5Weeks\02_큰돌은욕심많은도서관사어야.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="03_골동품수집가큰돌은욕심쟁이야.cpp">
+    <ClCompile Include="5Weeks\03_골동품수집가큰돌은욕심쟁이야.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="04_큰돌교수님의과제는너무어려워.cpp">
+    <ClCompile Include="5Weeks\04_큰돌교수님의과제는너무어려워.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="05_큰돌이는못말리는화가야.cpp">
+    <ClCompile Include="5Weeks\05_큰돌이는못말리는화가야.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="06_큰돌이는숫자매니아야.cpp">
+    <ClCompile Include="5Weeks\06_큰돌이는숫자매니아야.cpp">
       <Filter>5Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="01_큰돌의비밀수첩.cpp">
+    <ClCompile Include="6Weeks\01_큰돌의비밀수첩.cpp">
       <Filter>6Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="02_큰돌은형광펜질투쟁이야.cpp">
+    <ClCompile Include="6Weeks\02_큰돌은형광펜질투쟁이야.cpp">
       <Filter>6Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="03_큰돌의LIS.cpp">
+    <ClCompile Include="6Weeks\03_큰돌의LIS.cpp">
       <Filter>6Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="01_큰돌의사과나무.cpp">
+    <ClCompile Include="7Weeks\01_큰돌의사과나무.cpp">
       <Filter>7Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="02_큰돌의숫자.cpp">
+    <ClCompile Include="7Weeks\02_큰돌의숫자.cpp">
       <Filter>7Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="01_Baek_2042.cpp">
+    <ClCompile Include="8Weeks\01_Baek_2042.cpp">
       <Filter>8Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="02_Baek_3653.cpp">
+    <ClCompile Include="8Weeks\02_Baek_3653.cpp">
       <Filter>8Weeks</Filter>
     </ClCompile>
   </ItemGroup>
