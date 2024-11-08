@@ -34,7 +34,8 @@ int main()
 			mit = true;
 			break;
 		}
-		for (int i = 0; i < q.size(); i++)
+		int size = q.size();
+		for (int i = 0; i < size; i++)
 		{
 			int x = q.front();
 			q.pop();
