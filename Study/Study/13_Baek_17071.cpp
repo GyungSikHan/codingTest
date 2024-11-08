@@ -4,54 +4,64 @@
 
 using namespace std;
 
-long long MAX = 500000;
+const int MAX = 500000;
 int n, k;
-vector<long long> Time;
-queue<long long> q;
+int turn = 1;
+int visited[2][MAX + 4];
+bool mit;
+queue<int> q;
 
 int main()
 {
 	cin >> n >> k;
+
 	if(n == k)
 	{
 		cout << 0 << endl;
 		return 0;
 	}
 
-	Time.resize(MAX, 0);
-
-	Time[n] = 1;
 	q.push(n);
-	int index = 1;
+	visited[0][n] = 1;
 
 	while (q.empty() == false)
 	{
-		long long curr = q.front();
-		long long temp = k + Time[curr] - 1;
-		q.pop();
-		if(temp == curr)
+		k += turn;
+		if(k > MAX)
 			break;
-		for (long long next : {curr + 1, curr - 1, curr * 2})
+		if(visited[turn%2][k] != 0)
 		{
-			if(next < 0 || next > MAX)
-				continue;
-
-			if (next > 500000)
-			{
-				Time[k] = -1;
-				break;
-			}
-			else if(Time[next] == 0)
-			{
-				Time[next] = Time[curr] + 1;
-				q.push(next);
-			}
+			mit = true;
+			break;
 		}
-	}
+		for (int i = 0; i < q.size(); i++)
+		{
+			int x = q.front();
+			q.pop();
+			for (int nX : {x+1,x-1,x*2})
+			{
+				if(nX<0||nX>MAX||visited[turn%2][nX] != 0)
+					continue;
+				visited[turn % 2][nX] = visited[(turn +  1) % 2][nX] + 1;
+				if (nX == k)
+				{
+					mit = true;
+					break;
+				}
 
-	if (Time[k] == -1)
-		cout << -1 << endl;
+				q.push(nX);
+			}
+			if(mit == true)
+				break;
+		}
+		if(mit == true)
+			break;
+		turn++;
+	}
+	 
+	if (mit == true)
+		cout << turn << endl;
 	else
-		cout << Time[k] - 1 << endl;
+		cout << -1 << endl;
 
 }
