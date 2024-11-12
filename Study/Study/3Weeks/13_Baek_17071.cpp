@@ -43,7 +43,7 @@ int main()
 			{
 				if(nX<0||nX>MAX||visited[turn%2][nX] != 0)
 					continue;
-				visited[turn % 2][nX] = visited[(turn +  1) % 2][nX] + 1;
+				visited[turn % 2][nX] = visited[(turn +  1) % 2][x] + 1;
 				if (nX == k)
 				{
 					mit = true;
