@@ -246,5 +246,11 @@
     <ClCompile Include="15_Baek3197.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
+    <ClCompile Include="3Weeks\16_Baek1987.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="3Weeks\17_Baek2529.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
