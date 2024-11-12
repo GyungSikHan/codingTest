@@ -237,19 +237,19 @@
     <ClCompile Include="8Weeks\02_Baek_3653.cpp">
       <Filter>8Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="13_Baek_17071.cpp">
-      <Filter>3Weeks</Filter>
-    </ClCompile>
-    <ClCompile Include="14_Baek14497.cpp">
-      <Filter>3Weeks</Filter>
-    </ClCompile>
-    <ClCompile Include="15_Baek3197.cpp">
-      <Filter>3Weeks</Filter>
-    </ClCompile>
     <ClCompile Include="3Weeks\16_Baek1987.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
     <ClCompile Include="3Weeks\17_Baek2529.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="3Weeks\14_Baek14497.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="3Weeks\15_Baek3197.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="3Weeks\13_Baek_17071.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
   </ItemGroup>
