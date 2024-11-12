@@ -1,79 +1,60 @@
-#include<iostream>
+#include <iostream>
 #include <vector>
 #include <queue>
 
 using namespace std;
+
 int dX[4] = { -1,0,1,0 }, dY[4] = { 0,1,0,-1 };
-int n, m;
-int myX, myY, taX, taY;
-vector<vector<int>> map;
-vector<vector<int>> visited;
-int Count;
+
+int n, m, x, y, x2, y2;
+char map[301][301];
+int visited[301][301];
 
 int main()
 {
 	cin >> n >> m;
-	cin >> myX >> myY >> taX >> taY;
-	map.resize(n, vector<int>(m, 0));
-	visited.resize(n, vector<int>(m, 0));
-	
-	map[myX][myY] = '*';
-	map[taX][taY] = '#';
-
+	cin >> x >> y >> x2 >> y2;
+	x--;
+	y--;
+	x2--;
+	y2--;
 	for (int i = 0; i < n; i++)
+		for (int j = 0; j < m; j++)
+			cin >> map[i][j];
+
+	queue<pair<int, int>>q;
+	q.push({ x,y });
+	visited[x][y] = 1;
+
+	int cnt{};
+	while (map[x2][y2] != '0')
 	{
-		for (int  j = 0; j < m; j++)
+		cnt++;
+		queue<pair<int, int>>temp;
+		while (q.empty() == false)
 		{
-			char c{};
-			cin >> c;
-			if ((i == myX && j == myY) || (i == taX && j == taY))
-				continue;
-			map[i][j] = c - 48;
-		}
-	}
-	queue<pair<int, int>> q;
-	q.push({ myX,myY });
-	while (true)
-	{
-		int size = q.size();
-		for (int i = 0; i < size; i++)
-		{
-			int currX = q.front().first;
-			int currY = q.front().second;
-			if(currX == taX && currY == taY)
-				break;
+			int nx = q.front().first;
+			int ny = q.front().second;
 			q.pop();
-			//q.push 가 안됨
-			//왜 안되는지 생각해보기
 			for (int i = 0; i < 4; i++)
 			{
-				int x = currX + dX[i];
-				int y = currY + dY[i];
+				int nextX = nx + dX[i];
+				int nextY = ny + dY[i];
 
-				if(x < 0 || x >= n || y < 0 || y >= m)
+				if(nextX < 0 || nextX >= n || nextY < 0|| nextY >= m || visited[nextX][nextY] != 0)
 					continue;
-				if(visited[x][y] != 0)
-					continue;
-				if (map[x][y] == 1)
+				visited[nextX][nextY] = cnt;
+				if (map[nextX][nextY] != '0')
 				{
-					map[x][y] = 0;
-					visited[x][y] += 1;
+					map[nextX][nextY] = '0';
+					temp.push({ nextX,nextY });
 				}
 				else
-					q.push({ x,y });
+					q.push({ nextX,nextY });
 			}
 		}
-		for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < m; j++)
-			{
-				cout << map[i][j] << " ";
-			}
-			cout << endl;
-		}
-		Count++;
+		q = temp;
 	}
 
-	cout << Count << endl;
-
+	cout << visited[x2][y2] << endl;
 }
