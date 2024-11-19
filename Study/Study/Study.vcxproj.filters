@@ -252,10 +252,16 @@
     <ClCompile Include="3Weeks\13_Baek_17071.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="3Weeks\18_Baek9934.cpp">
+    <ClCompile Include="3Weeks\18_Baek_9934.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
-    <ClCompile Include="19_Baek_15684.cpp">
+    <ClCompile Include="3Weeks\19_Baek_15684.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="20_Baek_14620.cpp">
+      <Filter>3Weeks</Filter>
+    </ClCompile>
+    <ClCompile Include="21_Baek_1189.cpp">
       <Filter>3Weeks</Filter>
     </ClCompile>
   </ItemGroup>
