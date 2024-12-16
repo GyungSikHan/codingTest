@@ -253,7 +253,10 @@
     <ClCompile Include="5Weeks\12_Baek_1202.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="5Weeks\13_Baek_1644.cpp" />
+    <ClCompile Include="5Weeks\13_Baek_1644.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="5Weeks\14_Back_13144.cpp" />
     <ClCompile Include="6Weeks\01_큰돌의비밀수첩.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
